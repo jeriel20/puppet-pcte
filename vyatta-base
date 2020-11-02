@@ -29,3 +29,26 @@ router::interfaces:
       hw-id: ! '#{iface.mac}'
       address:
       - ! '#{iface.ip}/#{iface.cidrPrefixLength}'
+--------------------------------------------------------------
+router::config_file: /home/vyatta/configuration
+router::router_name: ! '#{@vm.name}'
+router::config:
+  ntp:
+    server: '200.200.200.201'
+  snmp:
+    community:
+      c1:
+        authorization: ro
+        community: simspace
+  syslog:
+    global:
+      facility all:
+        level: notice
+      facility protocols:
+        level: debug
+router::interfaces:
+  ! '#{iface in @vm.interfaces}':
+    eth#{iface.index}:
+      hw-id: ! '#{iface.mac}'
+      address:
+      - ! '#{iface.ip}/#{iface.cidrPrefixLength}'
