@@ -1,0 +1,6 @@
+---
+router::config:
+  static:
+    routes:
+    - next-hop: ! '#{next_hop.ip}'
+      route: ! '#{dst_subnet.subnet}'
