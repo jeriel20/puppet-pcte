@@ -1,0 +1,14 @@
+router::config:
+  dhcp:
+    ! '#{subnet.name}':
+      start: ! '#{dhcpStart}'
+      domain: ! '#{domain.name}'
+      subnet: ! '#{subnet.subnet}'
+      router: ! '#{subnet.defaultGateway}'
+      lease: '86400'
+      static-mapping:
+        ! '#{vmNic in subnet.nics}':
+          ! '#{vmNic.vm.name}':
+            mac-address: ! '#{vmNic.mac}'
+            ip-address: ! '#{vmNic.ip}'
+      stop: ! '#{dhcpStop}'
