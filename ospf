@@ -1,0 +1,16 @@
+"router::config":
+  ospf:
+    passive-interface:
+      - "eth0"
+    areas:
+      - area: "0"
+        networks:
+          - "0.0.0.0/0"
+    redistribute:
+      static: ""
+      connected: ""
+    access-lists:
+      - access-list: "100"
+        export:
+          - "static"
+          - "connected"
