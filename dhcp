@@ -1,0 +1,8 @@
+"router::config":
+  dhcp-relay:
+    interfaces:
+      - "eth#{sendInt.index}"
+      - "eth#{forwardInt1.index}"
+    relay-options:
+      relay-agents-packets: 'forward'
+    server: "#{dhcpInt.ip}"
