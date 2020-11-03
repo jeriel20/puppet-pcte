@@ -1,0 +1,5 @@
+router::config:
+  static:
+    routes:
+    - next-hop: '#{defGw}'
+      route: '0.0.0.0/0'
